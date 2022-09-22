@@ -29,5 +29,17 @@ fn get_file () -> String {
         .expect(&format!("\x1b[91mEl archivo {} no existe \x1b[0m", file_name))
 }
 
+fn no_edges (vertices:String) {
+    println!("{}", vertices);
+}
+
+fn edges_exist (vertices:String, edges:String){
+}
+
 fn main() {
+    let file = get_file();
+    match file.split_once('\n') {
+        Some(x) => edges_exist(String::from(x.0), String::from(x.1)),
+        None => no_edges(file)
+    }
 }
