@@ -1,14 +1,17 @@
 use std::env;
 use std::fs;
+use std::collections::HashMap;
 
-struct Vertice{
-    prueba: i32
+struct Vertex {
+    name: String, 
+    adjacencies: HashMap<String, Vertex>
 }
 
-impl Vertice{
-    fn new() -> Self {
-        Vertice {
-            prueba: 0
+impl Vertex {
+    fn new(name:String) -> Self {
+        Vertex {
+            name: name,
+            adjacencies: HashMap::new()
         }
     }
 }
