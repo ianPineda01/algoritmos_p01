@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 
 struct Vertice{
     prueba: i32
@@ -14,7 +15,6 @@ impl Vertice{
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-
     
     let file_name = match args.get(1) {
         Some(x) => {
@@ -27,4 +27,8 @@ fn main() {
             return
         }
     };
+    let contents = fs::read_to_string(file_name)
+        .expect(&format!("\x1b[91mEl archivo {} no existe \x1b[0m", file_name));
+    
+    println!("{}", contents);
 }
